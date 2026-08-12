@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-pitch-950 text-white font-body antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(ellipse at 20% 0%, rgba(59, 130, 246, 0.10) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+      linear-gradient(to bottom, #050810, #0a0f1c);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-blue-600 text-white;
+  }
+}
+
+@layer components {
+  /* ===== Glassmorphism Core ===== */
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-blue-400/20 shadow-glass;
+  }
+
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-blue-300/25 shadow-glass-blue;
+  }
+
+  .glass-card {
+    @apply glass rounded-2xl transition-all duration-500 hover:border-blue-400/50 hover:bg-white/10 hover:shadow-glow-blue;
+  }
+
+  .glass-input {
+    @apply w-full bg-white/5 backdrop-blur-md border border-blue-400/20 rounded-xl px-4 py-3 text-white placeholder-blue-300/40 outline-none transition-all duration-300 focus:border-blue-500/60 focus:bg-white/10 focus:shadow-glow-blue;
+  }
+
+  .glass-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white uppercase tracking-wider transition-all duration-500 transform hover:scale-105 active:scale-95;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e3a8a 100%);
+    box-shadow: 0 4px 30px rgba(37, 99, 235, 0.4);
+  }
+
+  .glass-btn-primary:hover {
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.6), 0 4px 30px rgba(37, 99, 235, 0.4);
+  }
+
+  .glass-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-blue-300 uppercase tracking-wider border border-blue-400/40 bg-white/5 backdrop-blur-md transition-all duration-500 transform hover:scale-105 hover:bg-blue-600/20 hover:border-blue-400/70 hover:text-blue-200 hover:shadow-glow-blue active:scale-95;
+  }
+
+  .glass-btn-red {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white uppercase tracking-wider transition-all duration-500 transform hover:scale-105 active:scale-95;
+    background: linear-gradient(135deg, #ff1744 0%, #d32f2f 50%, #8b0000 100%);
+    box-shadow: 0 4px 30px rgba(255, 23, 68, 0.3);
+  }
+
+  .glass-btn-red:hover {
+    box-shadow: 0 0 40px rgba(255, 23, 68, 0.5), 0 4px 30px rgba(255, 23, 68, 0.3);
+  }
+
+  /* ===== Section Title ===== */
+  .section-title {
+    @apply font-display font-bold uppercase tracking-wider;
+  }
+
+  .section-subtitle {
+    @apply text-blue-300/80 text-lg;
+  }
+
+  /* ===== Grid Background ===== */
+  .grid-bg {
+    @apply bg-grid-pattern bg-[length:40px_40px];
+  }
+
+  /* ===== Gradient Text ===== */
+  .text-gradient-blue {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #60a5fa 0%, #2563eb 50%, #1e3a8a 100%);
+  }
+
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #ff1744 0%, #d32f2f 50%, #8b0000 100%);
+  }
+
+  /* ===== Scrollbar ===== */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0f1c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #2563eb, #1e3a8a);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #3b82f6, #2563eb);
+  }
+
+  /* ===== Hero Overlay ===== */
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(5, 8, 16, 0.7) 0%, rgba(5, 8, 16, 0.85) 50%, rgba(5, 8, 16, 0.98) 100%);
+  }
+
+  /* ===== Nav Link ===== */
+  .nav-link {
+    @apply relative py-2 text-blue-200/80 font-medium tracking-wide transition-colors duration-300 hover:text-blue-400;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300 rounded-full transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .nav-link.active {
+    @apply text-blue-400;
+  }
+
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* ===== Stat Card ===== */
+  .stat-card {
+    @apply glass-card p-8 text-center;
+  }
+
+  /* ===== Marquee ===== */
+  .marquee-container {
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* ===== Map Placeholder ===== */
+  .map-placeholder {
+    @apply relative overflow-hidden rounded-2xl border border-blue-400/20;
+    background: 
+      linear-gradient(rgba(10, 15, 28, 0.95), rgba(10, 15, 28, 0.95)),
+      repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(59, 130, 246, 0.1) 20px, rgba(59, 130, 246, 0.1) 21px),
+      repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(59, 130, 246, 0.1) 20px, rgba(59, 130, 246, 0.1) 21px);
+  }
+}
+
+/* ===== Custom Animations ===== */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, rgba(59,130,246,0) 0%, rgba(59,130,246,0.1) 50%, rgba(59,130,246,0) 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .section-title {
+    @apply text-3xl;
+  }
+}

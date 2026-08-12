@@ -1,0 +1,26 @@
+{
+  "name": "redline-sports",
+  "version": "1.0.0",
+  "description": "REDLINE SPORTS - Premium Cricket Bats & Sports Gear. Crafted for Champions.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server"
+  },
+  "keywords": [
+    "cricket",
+    "bats",
+    "sports",
+    "redline",
+    "pakistan"
+  ],
+  "author": "REDLINE SPORTS",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
